@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="/static/main.css">
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+<body>
+<div id="header">
+    <h1>Register</h1>
+</div>
+<form method="POST">
+    <p>
+        <a href="{{ url_for('index') }}">Home</a>
+    </p>
+        <p>
+        <label>Email: </label>
+        <input type="email" name="email" id="email" required>
+    </p>
+    <p>
+        <label>User Name: </label>
+        <input name="username" id="username" required>
+    </p>
+    <p>
+        <label>Password: </label>
+        <input type="password" , name="password" , id="password" required>
+    </p>
+    <input type="submit" , value="Register">
+</form>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="/static/main.css">
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+<div id="header">
+    <h1>Login</h1>
+</div>
+<p>
+    <label><b>Please login to add a review</b></label>
+</p>
+<form method="POST">
+    <p>
+        <label>Email: </label>
+        <input type="email" name="email" id="email" required>
+    </p>
+    <p>
+        <label>Password: </label>
+        <input type="password" , name="password" , id="password"></br>
+    </p>
+    <input type="submit" , value="Log In">
+</form>
+<p>
+    <label>Don't have an account?</label>
+    <label>Please </label><a href="{{ url_for('register') }}">register</a>
+</p>
+</body>
+</html>

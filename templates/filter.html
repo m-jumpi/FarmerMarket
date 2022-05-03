@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Filter</title>
+</head>
+<body>
+<p>
+    <a href="{{ url_for('index')}}">Home</a>
+</p>
+<form method="post">
+    <p>
+        <label class="label">Select City: </label>
+        <select name="city" id="city">
+            {% for item in result_city%}
+            <option value="{{item[0]}}">{{item[0]}}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Submit">
+    </p>
+    <p>
+        <label class="label">Select State: </label>
+        <select name="state" id="state">
+            {% for item in result_state%}
+            <option value="{{item[0]}}">{{item[0]}}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Submit">
+    </p>
+</form>
+</body>
+</html>

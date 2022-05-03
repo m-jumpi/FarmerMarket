@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="/static/main.css">
+    <meta charset="UTF-8">
+    <title>Farmer Markets Details</title>
+</head>
+<body>
+<div id="header">
+    <h1>{{result["Marketname"]}}</h1>
+</div>
+<p>
+    <a href="{{ url_for('index')}}">Home</a>
+    <a href="{{ url_for('addreview', id=result['Fmid']) }}">Add review</a>
+    <a href="{{ url_for('listreviews', id=result['Fmid']) }}">List reviews</a>
+</p>
+<form>
+    <p>
+        <label class="label">List of products avaliable: </label>
+        <select name="product" size="1">
+            {% for item in plist%}
+            {% if result[item] =="Y" %}
+            <option value="{{item}}">{{item}}</option>
+            {% endif %}
+            {% endfor %}
+        </select>
+    </p>
+</form>
+<form method="POST">
+    <p>
+        <label class="label">Avaliable markets in range: </label>
+        <input type="text" name="range"/>
+        <input type="submit" name="submit" value="Submit">
+    </p>
+</form>
+<p>
+<address>
+    State: {{result["State"]}},
+    City: {{result["City"]}},
+    Street: {{result["Street"]}},
+    Zip: {{result["Zip"]}},
+    <a href="http://www.google.com/maps/place/{{result['Y']}},{{result['X']}}">Google</a><br/>
+    {% for item in clist%}
+    {% if result[item] !="" %}
+    {{item}}: <a href="{{result[item]}}">{{result[item]}}</a><br/>
+    {% endif %}
+    {% endfor %}
+</address>
+</p>
+<!--<ul>-->
+<!--    {% for key in result %}-->
+<!--    <li>key: {{key}} - value: {{result[key]}}</li>-->
+<!--    {% endfor%}-->
+<!--</ul>-->
+</body>
+</html>

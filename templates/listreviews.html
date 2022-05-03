@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="/static/main.css">
+    <meta charset="UTF-8">
+    <title>List reviews</title>
+</head>
+<body>
+<div id="header">
+    <h1>List of reviews</h1>
+</div>
+<p>
+    <a href="{{ url_for('index')}}">Home</a>
+    <a href="{{ url_for('addreview', id=result[2]) }}">Add review</a>
+</p>
+<p>
+<ul>
+    {% for item in result%}
+    <p>
+    <li>
+        {{item[0]}}</br>
+        {% for i in range(item[1]) %}
+        <img src="/static/star.png" width="16" height="16" alt="star">
+        {% endfor %}</br>
+        @{{item[3]}}
+    </li>
+    </p>
+    {% endfor %}
+</ul>
+</p>
+</body>
+</html>

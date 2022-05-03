@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="/static/main.css">
+    <title>Farmer Markets</title>
+</head>
+<body>
+<div id="header">
+    <h1>Farmer Markets</h1>
+</div>
+<p>
+    <label><b>Welcome, {{user}}!</b></label>
+</p>
+<p>
+    <a href="{{ url_for('index') }}">Home</a>
+    <a href="{{ url_for('filter') }}">Filter</a>
+
+</p>
+<form method="POST">
+    <p>
+        <label class="label">Search by market name: </label>
+        <input type="text" name="marketname"/>
+        <input type="submit" name="submit" value="Submit"><br/>
+    </p>
+</form>
+<table>
+    <tr>
+        <th>Market Name</th>
+        <th>State</th>
+        <th>City</th>
+        <th>Street</th>
+        <th>Zip</th>
+        <th>Google</th>
+    </tr>
+    {% for (FMID, MarketName, State, City, Street, zip, x, y) in result: %}
+    <tr>
+        <td><a href="{{ url_for('details', id=FMID, x=x, y=y)}}">{{MarketName}}</a></td>
+        <td>{{State}}</td>
+        <td>{{City}}</td>
+        <td>{{Street}}</td>
+        <td>{{zip}}</td>
+        <td><a href="http://www.google.com/maps/place/{{y}},{{x}}">Google</a></td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
